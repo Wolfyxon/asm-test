@@ -47,7 +47,7 @@ section .text
 
     ; void print(rsi string, rdx length)
     print:
-        mov rax, 1 ; sys_write
+        mov eax, 1 ; sys_write
         mov rdi, 1 ; stdout
         syscall
 
@@ -55,7 +55,7 @@ section .text
 
     ; rsi read()
     read:
-        mov rax, 0         ; sys_read
+        mov eax, 0         ; sys_read
         mov rdi, 0         ; stdin
         mov rsi, name      ; Specify output variable to write the string to
         mov rdx, name_len  ; Specify the string length
