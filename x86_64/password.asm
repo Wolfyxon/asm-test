@@ -8,7 +8,7 @@ section .data
     password_incorrect db "Access denied", 0xA
     password_incorrect_len equ $ - password_incorrect
 
-    password db "potato4096";, 0xA
+    password db "potato4096"
     password_len equ $ - password
 
 section .bss
@@ -31,7 +31,7 @@ section .text
                                   ; The entered password is already in rsi
         mov rdi, password         ; Load correct password
         mov rcx, password_len     ; Load length of the correct password
-        
+
         repe cmpsb                ; Run comparasion
         jne _password_incorrect   ; Jump to _password_incorrect if the passwords don't match
 
