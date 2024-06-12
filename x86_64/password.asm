@@ -26,7 +26,6 @@ section .text
         ; Wait for the user to enter the password
         call read
 
-
         ; Compare the passwords
                                   ; The entered password is already in rsi
         mov rdi, password         ; Load correct password
@@ -55,15 +54,14 @@ section .text
     print:
         mov eax, 1 ; sys_write
         mov rdi, 1 ; stdout
-
         syscall
+        
         ret
 
     ; rsi read()
     read:
         mov eax, 0 ; sys_read
         mov rdi, 0 ; stdin
-
         syscall
 
         mov rdi, rsi 
