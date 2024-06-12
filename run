@@ -1,5 +1,18 @@
 #!/bin/bash
 
 nasm -f elf64 "$1" -o tmp.o
+
+if ! [ $? -eq 0 ]; then
+    exit $?
+fi
+
+
 ld tmp.o
+
+if ! [ $? -eq 0 ]; then
+    echo "Linking failed"
+    exit $?
+fi
+
+
 ./a.out
