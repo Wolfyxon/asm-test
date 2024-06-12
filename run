@@ -1,9 +1,10 @@
 #!/bin/bash
 
+ASSEMBLED="tmp.o"
 
 ### Assemble ###
 
-nasm -f elf64 "$1" -o tmp.o
+nasm -f elf64 "$1" -o $ASSEMBLED
 
 if ! [ $? -eq 0 ]; then
     exit $?
@@ -11,12 +12,14 @@ fi
 
 ### Link ###
 
-ld tmp.o
+ld $ASSEMBLED
 
 if ! [ $? -eq 0 ]; then
     echo "Linking failed"
     exit $?
 fi
+
+rm $ASSEMBLED
 
 ### Run ###
 
