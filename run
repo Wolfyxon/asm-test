@@ -1,11 +1,15 @@
 #!/bin/bash
 
+
+### Assemble ###
+
 nasm -f elf64 "$1" -o tmp.o
 
 if ! [ $? -eq 0 ]; then
     exit $?
 fi
 
+### Link ###
 
 ld tmp.o
 
@@ -14,5 +18,6 @@ if ! [ $? -eq 0 ]; then
     exit $?
 fi
 
+### Run ###
 
 ./a.out
