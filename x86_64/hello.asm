@@ -15,7 +15,7 @@ section .text
         syscall
 
         ; Exit program (not exiting will cause a segmentation fault)
-        mov eax, 60  ; 60 - sys_exit
+        mov rax, 60  ; 60 - sys_exit
         mov rdi, 0   ; exit code 0
         syscall
 
