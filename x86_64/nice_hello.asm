@@ -20,7 +20,7 @@ section .text
     ; Exits the program
     ; void exit()
     exit:
-        mov eax, 60  ; 60 - sys_exit
+        mov rax, 60  ; 60 - sys_exit
         mov rdi, 0   ; exit code 0
         syscall
 

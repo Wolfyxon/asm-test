@@ -52,7 +52,7 @@ section .text
 
     ; void print(rsi string, rdx length)
     print:
-        mov eax, 1 ; sys_write
+        mov rax, 1 ; sys_write
         mov rdi, 1 ; stdout
         syscall
         
@@ -60,7 +60,7 @@ section .text
 
     ; rsi read()
     read:
-        mov eax, 0 ; sys_read
+        mov rax, 0 ; sys_read
         mov rdi, 0 ; stdin
         syscall
 
@@ -70,6 +70,6 @@ section .text
         ret
 
     exit:
-        mov eax, 60 ; sys_exit
+        mov rax, 60 ; sys_exit
         mov rdi, 0  ; Exit code 0
         syscall
