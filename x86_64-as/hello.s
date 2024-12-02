@@ -1,5 +1,6 @@
 .data
-    message: .ascii "Helo my fred \n"
+    message: 
+        .ascii "Helo my fred \n"
     message_end:
         message_len = (message_end - message)
 
