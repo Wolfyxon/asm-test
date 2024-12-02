@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SCRIPT=$1
+
+### Assembling ###
+gcc -c $SCRIPT -o $SCRIPT.o
+
+if ! [ $? -eq 0 ]; then
+    exit $?
+fi
+
+### Linking ###
+
+ld $SCRIPT.o
+
+### Running ###
+./a.out "$@"
